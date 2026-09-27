@@ -1,5 +1,5 @@
 <title>The Paydown Fund</title>
-<meta name="description" content="The Paydown Fund ($PAYDOWN): an independent token on Robinhood Chain that sends most of its trading tax toward the U.S. national debt.">
+<meta name="description" content="The Paydown Fund ($PAYDOWN): an independent token on Robinhood Chain that donates most of its trading tax toward the U.S. national debt.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,800;1,6..96,500&family=Libre+Franklin:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -17,7 +17,7 @@ window.FUND = {
   xUrl:      "",           // e.g. "https://x.com/paydownfund"
   contract:  "",           // token CA. Empty shows "Posted at launch"
   fundWallet:"",           // wallet that collects the debt share. Empty shows "Posted at launch"
-  payments:  [             // add each Treasury payment here once it is made
+  donations: [             // add each Treasury donation here once its Pay.gov receipt is in
     // { date: "2026-10-01", amount: 12500.00, receipt: "https://...", tx: "0x..." }
   ]
 };
@@ -221,7 +221,7 @@ footer a{color:#fff}
     <div class="wrap">
       <p class="eyebrow">An independent fund · <span data-f="chain">Robinhood Chain</span></p>
       <h1>Let's pay it <em>down.</em></h1>
-      <p class="lede">Every trade of $<span data-f="ticker">PAYDOWN</span> carries a <span data-f="taxPct">3</span>% tax. <span data-f="debtPct">80</span>% of it goes toward the U.S. national debt, and every payment is posted publicly.</p>
+      <p class="lede">Every trade of $<span data-f="ticker">PAYDOWN</span> carries a <span data-f="taxPct">3</span>% tax. <span data-f="debtPct">80</span>% of it is donated toward the U.S. national debt, and every donation receipt is posted publicly.</p>
 
       <p class="counter-label">U.S. national debt, right now</p>
       <div class="counter" id="counter" aria-live="off">$40,068,807,991,924<span class="cents">.84</span></div>
@@ -247,8 +247,8 @@ footer a{color:#fff}
         <h2>Forty trillion dollars. <em>One trade at a time.</em></h2>
       </div>
       <div class="copy">
-        <p>The national debt grows by billions every day, and most people feel there is nothing they can do about it. <strong><span data-f="name">The Paydown Fund</span> turns trading into a small, steady payment against it.</strong></p>
-        <p>The U.S. Treasury accepts <strong>Gifts to Reduce the Public Debt</strong> from anyone. The fund collects its share of the token tax in a public wallet and sends it there, then posts the receipt.</p>
+        <p>The national debt grows by billions every day, and most people feel there is nothing they can do about it. <strong><span data-f="name">The Paydown Fund</span> turns trading into a small, steady donation against it.</strong></p>
+        <p>The U.S. Treasury accepts donations toward the debt through its official <strong>Pay.gov</strong> page, “Gifts to Reduce the Debt Held by the Public”. The fund collects its share of the token tax in a public wallet, donates it there, and posts the official receipt.</p>
         <p>We are an independent project. We are not part of, or endorsed by, the U.S. government.</p>
       </div>
     </div>
@@ -274,8 +274,8 @@ footer a{color:#fff}
         </div>
         <div class="step">
           <span class="n">iii.</span>
-          <h3>The debt shrinks</h3>
-          <p>The fund sends the balance to the Treasury as a gift toward the public debt and posts the receipt in the ledger below.</p>
+          <h3>The fund donates</h3>
+          <p>The fund donates the balance to the Treasury through Pay.gov and posts the official receipt in the ledger below.</p>
         </div>
       </div>
     </div>
@@ -306,27 +306,27 @@ footer a{color:#fff}
   <section id="ledger">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Public ledger</p>
-        <h2>Every dollar, on the record.</h2>
-        <p class="sub">Each payment to the Treasury is listed here with its receipt and the on-chain transaction that funded it.</p>
+        <p class="eyebrow">Donation ledger</p>
+        <h2>Every donation, on the record.</h2>
+        <p class="sub">Each donation is listed with its date, amount and official Pay.gov receipt (private details redacted), plus the on-chain transaction that funded it. A wallet transfer on its own is not a donation. Only a posted receipt counts.</p>
       </div>
       <div class="ledger-card">
         <div class="ledger-top">
-          <div class="kv"><span class="k">Paid toward the debt</span><span class="v" id="totalPaid">$0</span></div>
-          <div class="kv"><span class="k">Payments</span><span class="v" id="payCount">0</span></div>
+          <div class="kv"><span class="k">Donated so far</span><span class="v" id="totalPaid">$0</span></div>
+          <div class="kv"><span class="k">Donations</span><span class="v" id="payCount">0</span></div>
           <div class="kv" style="flex:1 1 320px"><span class="k">Fund wallet</span>
             <span class="addr"><code id="walletAddr">Posted at launch</code><button type="button" class="copy-btn" id="walletCopy" hidden>Copy</button></span>
           </div>
         </div>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Date</th><th>Amount</th><th>Treasury receipt</th><th>Transaction</th></tr></thead>
+            <thead><tr><th>Date</th><th>Amount</th><th>Pay.gov receipt</th><th>Transaction</th></tr></thead>
             <tbody id="ledgerRows"></tbody>
           </table>
         </div>
         <div class="empty" id="ledgerEmpty">
-          <strong>No payments yet</strong>
-          The first payment and its receipt will appear here once the fund wallet has collected its first balance.
+          <strong>No donations yet</strong>
+          The first donation and its receipt will appear here once the fund wallet has collected its first balance.
         </div>
       </div>
     </div>
@@ -362,8 +362,8 @@ footer a{color:#fff}
       </div>
       <div class="faq">
         <details open>
-          <summary><span>Is buying $<span data-f="ticker">PAYDOWN</span> a payment to the government?</span></summary>
-          <div class="a"><p>No. Buying the token is a trade with other people. The fund makes the payments to the Treasury from the tax it collects, and it posts each one in the ledger.</p></div>
+          <summary><span>Is buying $<span data-f="ticker">PAYDOWN</span> a donation to the government?</span></summary>
+          <div class="a"><p>No. Buying the token is a trade with other people. The fund makes the donations to the Treasury from the tax it collects, and it posts each receipt in the ledger.</p></div>
         </details>
         <details>
           <summary><span>Is the <span data-f="taxPct">3</span>% a federal tax?</span></summary>
@@ -371,11 +371,11 @@ footer a{color:#fff}
         </details>
         <details>
           <summary><span>How can I check that the money reaches the Treasury?</span></summary>
-          <div class="a"><p>Watch the fund wallet on the block explorer to see what it collects and what it sends out. Every payment in the ledger links to its Treasury receipt and to the transaction that funded it.</p></div>
+          <div class="a"><p>Watch the fund wallet on the block explorer to see what it collects. Every donation in the ledger links to its official Pay.gov receipt and to the transaction that funded it. Money sitting in the wallet has not been donated until its receipt is posted.</p></div>
         </details>
         <details>
           <summary><span>Does the U.S. government endorse this?</span></summary>
-          <div class="a"><p>No. <span data-f="name">The Paydown Fund</span> is independent. The Treasury accepts gifts toward the public debt from the public, and that is the only connection.</p></div>
+          <div class="a"><p>No. <span data-f="name">The Paydown Fund</span> is independent. The Treasury accepts donations toward the debt from the public through Pay.gov, and that is the only connection.</p></div>
         </details>
         <details>
           <summary><span>Is this an investment?</span></summary>
@@ -389,7 +389,7 @@ footer a{color:#fff}
   <div class="close">
     <div class="wrap">
       <h2>Chip away at it.</h2>
-      <p>Every trade adds to the next payment. Every payment goes on the record.</p>
+      <p>Every trade adds to the next donation. Every donation goes on the record.</p>
       <a class="btn btn-white" data-f="buyUrl" href="#" target="_blank" rel="noopener">Buy $<span data-f="ticker">PAYDOWN</span> on <span data-f="launchpad">Pons</span></a>
     </div>
   </div>
@@ -401,7 +401,7 @@ footer a{color:#fff}
       <span class="brand"><span data-f="name">The Paydown Fund</span></span>
       <span id="xLink" hidden><a data-f="xUrl" href="#" target="_blank" rel="noopener">Follow on X</a></span>
     </div>
-    <p class="disc"><span data-f="name">The Paydown Fund</span> is an independent project and is not affiliated with, endorsed by, or acting for the U.S. government or the Department of the Treasury. The token tax is a private charge set by this project, not a federal tax, and buying the token is not a payment to the Treasury. Debt figures come from the Treasury's public “Debt to the Penny” data and are projected between releases. Crypto tokens are volatile and can lose all their value. Nothing on this site is financial advice.</p>
+    <p class="disc"><span data-f="name">The Paydown Fund</span> is an independent project and is not affiliated with, endorsed by, or acting for the U.S. government or the Department of the Treasury. The token tax is a private charge set by this project, not a federal tax, and buying the token is not a donation to the Treasury. Debt figures come from the Treasury's public “Debt to the Penny” data and are projected between releases. Crypto tokens are volatile and can lose all their value. Nothing on this site is financial advice.</p>
   </div>
 </footer>
 
@@ -441,7 +441,7 @@ footer a{color:#fff}
 
   // ---- Ledger ----
   const usd = n => '$' + n.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
-  const pays = (F.payments || []).slice().sort((a,b) => b.date.localeCompare(a.date));
+  const pays = (F.donations || F.payments || []).slice().sort((a,b) => b.date.localeCompare(a.date));
   if(pays.length){
     document.getElementById('ledgerEmpty').hidden = true;
     const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
