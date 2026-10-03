@@ -33,7 +33,7 @@ window.FUND = {
   explorer:  "https://robinhoodchain.blockscout.com",
   xUrl:      "https://x.com/ThePaydownFund",           // e.g. "https://x.com/paydownfund"
   contract:  "",           // token CA. Empty shows "Posted at launch"
-  fundWallet:"",           // wallet that collects the debt share. Empty shows "Posted at launch"
+  fundWallet:"0xF53Db56BAA9Ce605d27d3B19de288A969E1bC72F",           // wallet that collects the debt share. Empty shows "Posted at launch"
   donations: [             // add each Treasury donation here once its Pay.gov receipt is in
     // { date: "2026-10-01", amount: 12500.00, receipt: "https://...", tx: "0x..." }
   ]
@@ -285,7 +285,7 @@ footer a{color:#fff}
         <div class="step">
           <span class="n">ii.</span>
           <h3>The fund collects</h3>
-          <p>The tax, plus the creator's share of Pons's own trading fee, goes to the public fund wallet in <span data-f="paidIn">USDG</span>. <span data-f="debtPct">80</span>% of it is set aside for the debt. Anyone can watch the wallet on the <a id="walletExplorer" href="#" target="_blank" rel="noopener">block explorer</a>.</p>
+          <p>The tax, plus the creator's share of Pons's own trading fee, goes to the public dev wallet in <span data-f="paidIn">USDG</span>. <span data-f="debtPct">80</span>% of it is set aside for the debt. Anyone can watch the wallet on the <a id="walletExplorer" href="#" target="_blank" rel="noopener">block explorer</a>.</p>
         </div>
         <div class="step">
           <span class="n">iii.</span>
@@ -329,7 +329,7 @@ footer a{color:#fff}
         <div class="ledger-top">
           <div class="kv"><span class="k">Donated so far</span><span class="v" id="totalPaid">—</span></div>
           <div class="kv"><span class="k">Donations</span><span class="v" id="payCount">—</span></div>
-          <div class="kv" style="flex:1 1 320px"><span class="k">Fund wallet</span>
+          <div class="kv" style="flex:1 1 320px"><span class="k">Dev wallet</span>
             <span class="addr"><code id="walletAddr">Posted at launch</code><button type="button" class="copy-btn" id="walletCopy" hidden>Copy</button></span>
           </div>
         </div>
@@ -341,7 +341,7 @@ footer a{color:#fff}
         </div>
         <div class="empty" id="ledgerEmpty">
           <strong>No donations yet</strong>
-          The first donation and its receipt will appear here once the fund wallet has collected its first balance.
+          The first donation and its receipt will appear here once the dev wallet has collected its first balance.
         </div>
       </div>
     </div>
